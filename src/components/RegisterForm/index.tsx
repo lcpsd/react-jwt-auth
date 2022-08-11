@@ -12,7 +12,8 @@ export function RegisterForm({onSubmitFn}:RegisterFormProps){
 
   const formValidation = yup.object().shape({
     email: yup.string().email("Inválido").required("Obrigatório!"),
-    password: yup.string().min(8).required("Obrigatório!")
+    password: yup.string().min(8).required("Obrigatório!"),
+    confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Senhas divergentes!"),
   })
 
   return(
@@ -22,7 +23,7 @@ export function RegisterForm({onSubmitFn}:RegisterFormProps){
           <h4>Registrar</h4>
           <FormField name="email" placeHolderText="E-mail"/>
           <FormField name="password" placeHolderText="Senha"/>
-          <FormField name="confirm-password" placeHolderText="Confirme a senha"/>
+          <FormField name="confirmPassword" placeHolderText="Confirme a senha"/>
 
           <div className="buttons-row">
             <DefaultButton theme="dark" title="Registrar"/>
