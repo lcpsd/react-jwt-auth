@@ -2,6 +2,7 @@ import { Form, Formik, FormikValues } from "formik";
 import { FormField } from "../FormField";
 import * as yup from 'yup'
 import Styles from "./styles";
+import { DefaultButton } from "../DefaultButton";
 
 interface LoginFormProps{
     onSubmitFn: (values:FormikValues) => void | Promise<void>;
@@ -21,7 +22,10 @@ export function LoginForm({onSubmitFn}:LoginFormProps){
           <h4>Login</h4>
           <FormField name="email" placeHolderText="E-mail"/>
           <FormField name="password" placeHolderText="Senha"/>
-          <button type="submit">Entrar</button>
+
+          <div className="buttons-row">
+            <DefaultButton theme="purple" title="Entrar"/>
+          </div>
         </Form>
       </Formik>
     </Styles>
