@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "../services/api";
+import { getUserLocalStorage, setUserLocalStorage } from "./utils";
 
 interface AuthContextProps{
     user: PayloadProps | undefined;
@@ -24,6 +25,10 @@ interface PayloadProps{
 export const AuthContext = createContext({} as AuthContextProps)
 
 export function AuthContextProvider({children}: AuthContextProviderProps){
+
+    useEffect(() => {
+        getUserLocalStorage() && setUser(user)
+    }, [])
 
     const [user, setUser] = useState<PayloadProps>()
 
@@ -50,6 +55,7 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
             }
 
             setUser(payload)
+            setUserLocalStorage(payload)
             
         } catch (error) {
             return null
@@ -58,6 +64,7 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
 
     async function logout(){
         setUser(undefined)
+        setUserLocalStorage(null)
     }
 
     return(

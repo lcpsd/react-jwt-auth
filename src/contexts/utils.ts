@@ -3,7 +3,7 @@ interface UserProps{
     email: string;
 }
 
-export function setUserLocalStorage(user: UserProps) {
+export function setUserLocalStorage(user: UserProps | null){
     localStorage.setItem("user", JSON.stringify(user));
 }
 
