@@ -24,7 +24,6 @@ export function LoginForm({onSubmitFn}:LoginFormProps){
           <FormField name="password" placeHolderText="Senha"/>
 
           <div className="buttons-row">
-            <DefaultButton theme="dark" title="Registrar"/>
             <DefaultButton theme="purple" title="Entrar"/>
           </div>
         </Form>

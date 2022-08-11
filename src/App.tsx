@@ -3,8 +3,11 @@ import {FormikValues} from 'formik'
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
 import { api } from "./services/api";
+import { useAuthContext } from "./contexts/AuthContext";
 
 function App() {
+
+  const {login, logout} = useAuthContext()
 
   async function handleLogin(values: FormikValues){
     const res = await api.get("/login", {

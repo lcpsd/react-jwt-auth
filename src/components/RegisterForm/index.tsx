@@ -26,7 +26,7 @@ export function RegisterForm({onSubmitFn}:RegisterFormProps){
           <FormField name="confirmPassword" placeHolderText="Confirme a senha" type="password"/>
 
           <div className="buttons-row">
-            <DefaultButton theme="dark" title="Registrar"/>
+            <DefaultButton theme="purple" title="Registrar"/>
           </div>
         </Form>
       </Formik>
