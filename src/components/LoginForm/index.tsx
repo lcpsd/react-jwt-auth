@@ -10,8 +10,8 @@ interface LoginFormProps{
 export function LoginForm({onSubmitFn}:LoginFormProps){
 
   const formValidation = yup.object().shape({
-    email: yup.string().email().required(),
-    password: yup.string().min(8).required()
+    email: yup.string().email("Inválido").required("Obrigatório!"),
+    password: yup.string().min(8).required("Obrigatório!")
   })
 
   return(
