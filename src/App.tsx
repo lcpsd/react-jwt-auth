@@ -1,17 +1,17 @@
-import { AppStyles } from "./styles/AppStyles";
 import { Container } from "./styles/Container.styled";
-import {Formik, Form, Field, ErrorMessage} from 'formik'
-import * as yup from 'yup'
-import { FormField } from "./components/FormField";
+import {FormikValues} from 'formik'
 import { LoginForm } from "./components/LoginForm";
 
 
 function App() {
+
+  function handleLogin(values: FormikValues){
+
+  }
+
   return (
     <Container>
-      <AppStyles>
-        <LoginForm onSubmitFn={() => {}}/>
-      </AppStyles>
+      <LoginForm onSubmitFn={handleLogin}/>
     </Container>
   );
 }

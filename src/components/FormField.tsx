@@ -9,8 +9,10 @@ export function FormField({name, placeHolderText}:FormFieldProps){
 
     return(
         <>
+        <div>
             <Field name={name} className="form-field" placeHolder={placeHolderText}/>
-            <ErrorMessage component="span" name="email" className="form-error"/>
+            <ErrorMessage component="span" name={name} className="form-error"/>
+        </div>
         </>
     )
 }
