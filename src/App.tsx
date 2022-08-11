@@ -3,17 +3,14 @@ import { Container } from "./styles/Container.styled";
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as yup from 'yup'
 import { FormField } from "./components/FormField";
+import { LoginForm } from "./components/LoginForm";
 
 
 function App() {
   return (
     <Container>
       <AppStyles>
-        <Formik initialValues={{}} onSubmit={() => {}}>
-          <Form className="login-form">
-            <FormField name="email" placeHolderText="E-mail"/>
-          </Form>
-        </Formik>
+        <LoginForm onSubmitFn={() => {}}/>
       </AppStyles>
     </Container>
   );
