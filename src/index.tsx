@@ -9,6 +9,7 @@ import { ProtectedLayout } from './components/ProtectedLayout';
 import { AuthContextProvider } from './contexts/AuthContext';
 import GlobalStyle from './styles/globalStyles';
 import { theme } from './styles/theme';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

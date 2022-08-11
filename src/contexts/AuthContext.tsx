@@ -6,7 +6,7 @@ interface AuthContextProps{
     user: PayloadProps | undefined;
     login: (email: string, password: string) => Promise<any>;
     logout: () => void;
-    register: (email: string, password: string) => void;
+    register: (email: string, password: string, name: string) => Promise<any>;
 }
 
 interface AuthContextProviderProps{
@@ -32,22 +32,24 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
 
     const [user, setUser] = useState<PayloadProps>()
 
-    async function register(email: string, password: string){
+    async function register(name: string, email: string, password: string){
         try {
-            const res = await api.post("/register", {
+            const res = await api.post("/auth/register", {
+                name,
                 email,
-                password
+                password,
+                confirmpassword: password
             })
-
+            
             return res
         } catch (error) {
-            return null
+            return undefined
         }
     }
 
     async function login(email: string, password: string){
         try {
-            const {data} = await api.post<APIresponseProps>('/login', {email, password})
+            const {data} = await api.post<APIresponseProps>('/auth/login', {email, password})
 
             const payload = {
                 token: data.token,
