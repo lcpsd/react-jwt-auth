@@ -1,7 +1,7 @@
 import { Form, Formik, FormikValues } from "formik";
 import { FormField } from "../FormField";
 import * as yup from 'yup'
-import Styles from "./styles";
+import {Styles} from "./styles";
 import { DefaultButton } from "../DefaultButton";
 
 interface LoginFormProps{
@@ -24,6 +24,7 @@ export function LoginForm({onSubmitFn}:LoginFormProps){
           <FormField name="password" placeHolderText="Senha"/>
 
           <div className="buttons-row">
+            <DefaultButton theme="dark" title="Registrar"/>
             <DefaultButton theme="purple" title="Entrar"/>
           </div>
         </Form>

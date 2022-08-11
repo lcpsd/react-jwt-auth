@@ -4,6 +4,7 @@ export const Styles = styled.div`
     h4{
         text-align: center;
     }
+
     .login-form{
         display: flex;
         flex-direction: column;
@@ -14,6 +15,9 @@ export const Styles = styled.div`
         padding: 20px;
         gap: 0.5rem;
     }
-`
 
-export default Styles;
+    .buttons-row{
+        display: flex;
+        gap: 0.5rem;
+    }
+`
