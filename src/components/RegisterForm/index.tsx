@@ -22,12 +22,11 @@ export function RegisterForm({onSubmitFn}:RegisterFormProps){
         <Form className="register-form">
           <h4>Registrar</h4>
           <FormField name="email" placeHolderText="E-mail"/>
-          <FormField name="password" placeHolderText="Senha"/>
-          <FormField name="confirmPassword" placeHolderText="Confirme a senha"/>
+          <FormField name="password" placeHolderText="Senha" type="password"/>
+          <FormField name="confirmPassword" placeHolderText="Confirme a senha" type="password"/>
 
           <div className="buttons-row">
             <DefaultButton theme="dark" title="Registrar"/>
-            <DefaultButton theme="purple" title="Entrar"/>
           </div>
         </Form>
       </Formik>

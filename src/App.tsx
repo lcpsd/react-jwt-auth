@@ -2,16 +2,21 @@ import { Container } from "./styles/Container.styled";
 import {FormikValues} from 'formik'
 import { LoginForm } from "./components/LoginForm";
 import { RegisterForm } from "./components/RegisterForm";
-
+import { api } from "./services/api";
 
 function App() {
 
-  function handleLogin(values: FormikValues){
+  async function handleLogin(values: FormikValues){
+    const res = await api.get("/login", {
+      params: values
+    })
 
+    console.log(res)
   }
 
-  function handleRegister(values: FormikValues){
-
+  async function handleRegister(values: FormikValues){
+    const res = await api.post("/user", values)
+    console.log(res)
   }
 
   return (
