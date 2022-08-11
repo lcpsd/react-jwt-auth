@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
+import { Profile } from './components/Profile';
+import { ProtectedLayout } from './components/ProtectedLayout';
 import { AuthContextProvider } from './contexts/AuthContext';
 import GlobalStyle from './styles/globalStyles';
 import { theme } from './styles/theme';
@@ -21,7 +23,7 @@ root.render(
           <Routes>
             <Route path='/'element={<App />} />
 
-            <Route path='profile'>
+            <Route path='profile' element={<ProtectedLayout />}>
 
             </Route>
           </Routes>

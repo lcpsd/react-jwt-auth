@@ -1,6 +1,7 @@
 import { useAuthContext } from "../../contexts/AuthContext"
+import { Profile } from "../Profile"
 
-export function ProtectedLayout({children}:{children: JSX.Element}){
+export function ProtectedLayout(){
 
     const {user} = useAuthContext()
 
@@ -10,5 +11,9 @@ export function ProtectedLayout({children}:{children: JSX.Element}){
         )
     }
 
-    return(children)
+    return(
+        <>
+            <Profile/>
+        </>
+    )
 }
