@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const Styles = styled.div`
-
     h4{
         text-align: center;
     }
 
-    .login-form{
+    .register-form{
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -16,6 +15,7 @@ export const Styles = styled.div`
         padding: 20px;
         gap: 0.5rem;
         height: 300px;
+
     }
 
     .buttons-row{

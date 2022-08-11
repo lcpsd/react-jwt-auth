@@ -3,6 +3,6 @@ export const theme = {
         primary: '#fff',
         secondary: '#7b00ff',
         tertiary: '#470094',
-        quaternary: '#10161f',
+        quaternary: '#161f2b',
     }
 }

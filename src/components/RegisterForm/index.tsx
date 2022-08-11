@@ -4,11 +4,11 @@ import * as yup from 'yup'
 import {Styles} from "./styles";
 import { DefaultButton } from "../DefaultButton";
 
-interface LoginFormProps{
+interface RegisterFormProps{
     onSubmitFn: (values:FormikValues) => void | Promise<void>;
 }
 
-export function LoginForm({onSubmitFn}:LoginFormProps){
+export function RegisterForm({onSubmitFn}:RegisterFormProps){
 
   const formValidation = yup.object().shape({
     email: yup.string().email("Inválido").required("Obrigatório!"),
@@ -18,10 +18,11 @@ export function LoginForm({onSubmitFn}:LoginFormProps){
   return(
     <Styles>
       <Formik initialValues={{}} onSubmit={onSubmitFn} validationSchema={formValidation}>
-        <Form className="login-form">
-          <h4>Logar</h4>
+        <Form className="register-form">
+          <h4>Registrar</h4>
           <FormField name="email" placeHolderText="E-mail"/>
           <FormField name="password" placeHolderText="Senha"/>
+          <FormField name="confirm-password" placeHolderText="Confirme a senha"/>
 
           <div className="buttons-row">
             <DefaultButton theme="dark" title="Registrar"/>
