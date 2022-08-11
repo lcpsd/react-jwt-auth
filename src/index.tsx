@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
 import { AuthContextProvider } from './contexts/AuthContext';
@@ -15,7 +17,15 @@ root.render(
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <AuthContextProvider>
-        <App />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/'element={<App />} />
+
+            <Route path='profile'>
+
+            </Route>
+          </Routes>
+        </BrowserRouter>
       </AuthContextProvider>
     </ThemeProvider>
   </React.StrictMode>
