@@ -1,6 +1,13 @@
+import { AppStyles } from "./styles/AppStyles";
+import { Container } from "./styles/Container.styled";
+
 function App() {
   return (
-    <div>ok</div>
+    <Container>
+      <AppStyles>
+        OK
+      </AppStyles>
+    </Container>
   );
 }
 
