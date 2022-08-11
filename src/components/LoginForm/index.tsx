@@ -1,7 +1,7 @@
 import { Form, Formik, FormikValues } from "formik";
 import { FormField } from "../FormField";
 import * as yup from 'yup'
-import Styles from "./Styles";
+import Styles from "./styles";
 
 interface LoginFormProps{
     onSubmitFn: (values:FormikValues) => void | Promise<void>;

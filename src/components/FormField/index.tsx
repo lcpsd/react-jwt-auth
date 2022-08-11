@@ -1,4 +1,5 @@
 import { ErrorMessage, Field } from "formik";
+import { Styles } from "./styles";
 
 interface FormFieldProps{
     name: string;
@@ -9,10 +10,10 @@ export function FormField({name, placeHolderText}:FormFieldProps){
 
     return(
         <>
-        <div>
+        <Styles>
             <Field name={name} className="form-field" placeHolder={placeHolderText}/>
             <ErrorMessage component="span" name={name} className="form-error"/>
-        </div>
+        </Styles>
         </>
     )
 }
