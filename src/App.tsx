@@ -11,14 +11,25 @@ function App() {
   const {login, register} = useAuthContext()
 
   async function handleLogin({email, password}: FormikValues){
-    login(email, password)
+    const {response} = await login(email, password)
+
+    if(response?.status == 404){
+      notify("Usuário não cadastrado")
+      return
+    }
+
+    notify("Logado")
   }
 
   async function handleRegister({email, password, name}: FormikValues){
-    const res = await register(email, password, name)
-    if(!res){
+    const {response} = await register(name, email, password)
+
+    if(response?.status == 422){
       notify('Usuário já existe!')
+      return
     }
+
+    notify("Cadastrado com sucesso!")
   }
 
   return (

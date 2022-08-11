@@ -43,7 +43,7 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
             
             return res
         } catch (error) {
-            return undefined
+            return error
         }
     }
 
@@ -60,7 +60,7 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
             setUserLocalStorage(payload)
             
         } catch (error) {
-            return null
+            return error
         }
     }
 
