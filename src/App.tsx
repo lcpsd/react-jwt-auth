@@ -7,19 +7,14 @@ import { useAuthContext } from "./contexts/AuthContext";
 
 function App() {
 
-  const {login, logout} = useAuthContext()
+  const {login, register} = useAuthContext()
 
-  async function handleLogin(values: FormikValues){
-    const res = await api.get("/login", {
-      params: values
-    })
-
-    console.log(res)
+  async function handleLogin({email, password}: FormikValues){
+    login(email, password)
   }
 
-  async function handleRegister(values: FormikValues){
-    const res = await api.post("/user", values)
-    console.log(res)
+  async function handleRegister({email, password}: FormikValues){
+    register(email, password)
   }
 
   return (
