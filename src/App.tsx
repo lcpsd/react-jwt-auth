@@ -5,26 +5,32 @@ import { RegisterForm } from "./components/RegisterForm";
 import { useAuthContext } from "./contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
 import { notify } from "./components/Toast";
+import { useNavigate } from "react-router-dom";
 
 function App() {
 
   const {login, register} = useAuthContext()
 
+  const navigate = useNavigate()
+  
   async function handleLogin({email, password}: FormikValues){
     const {response} = await login(email, password)
 
-    if(response?.status == 404){
+    const {status} = response
+    
+    if(!!status && status === 404){
       notify("Usuário não cadastrado")
       return
     }
 
     notify("Logado")
+    navigate("/profile")
   }
 
   async function handleRegister({email, password, name}: FormikValues){
     const {response} = await register(name, email, password)
 
-    if(response?.status == 422){
+    if(response?.status === 422){
       notify('Usuário já existe!')
       return
     }

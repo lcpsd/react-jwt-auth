@@ -27,7 +27,9 @@ export const AuthContext = createContext({} as AuthContextProps)
 export function AuthContextProvider({children}: AuthContextProviderProps){
 
     useEffect(() => {
-        getUserLocalStorage() && setUser(user)
+        const user  = getUserLocalStorage()
+        if(user)
+         setUser(user)
     }, [])
 
     const [user, setUser] = useState<PayloadProps>()
@@ -50,14 +52,17 @@ export function AuthContextProvider({children}: AuthContextProviderProps){
     async function login(email: string, password: string){
         try {
             const {data} = await api.post<APIresponseProps>('/auth/login', {email, password})
-
+            
             const payload = {
                 token: data.token,
                 email,
             }
-
+            
             setUser(payload)
+            console.log(user)
             setUserLocalStorage(payload)
+
+            return payload
             
         } catch (error) {
             return error
