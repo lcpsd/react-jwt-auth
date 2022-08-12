@@ -15,10 +15,8 @@ function App() {
   
   async function handleLogin({email, password}: FormikValues){
     const {response} = await login(email, password)
-
-    const {status} = response
     
-    if(!!status && status === 404){
+    if(response?.status !== undefined && response?.status === 404){
       notify("Usuário não cadastrado")
       return
     }
