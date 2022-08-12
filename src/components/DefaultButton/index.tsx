@@ -1,6 +1,6 @@
-import { Button } from "./styles";
+import { Styles } from "./styles";
 
-interface DefaultButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
+interface DefaultButtonProps{
     title: string;
     theme: 'purple' | 'dark';
 }
@@ -8,8 +8,10 @@ interface DefaultButtonProps extends React.HTMLAttributes<HTMLButtonElement>{
 export function DefaultButton({title, theme, ...rest}:DefaultButtonProps){
 
     return(
-        <Button colorTheme={theme} {...rest} type="submit">
-            {title}
-        </Button>
+        <Styles colorTheme={theme}>
+            <button {...rest} type="submit">
+                {title}
+            </button>
+        </Styles>
     )
 }
