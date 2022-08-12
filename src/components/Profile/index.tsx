@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../contexts/AuthContext"
 import { Container } from "../../styles/Container.styled"
 import { DefaultButton } from "../DefaultButton"
@@ -5,7 +6,13 @@ import { ProfileInfoCard } from "../ProfileInfoCard"
 
 export function Profile(){
 
-    const {user} = useAuthContext()
+    const {user, logout} = useAuthContext()
+    const navigate = useNavigate()
+
+    function handleLogout(){
+        logout()
+        navigate("/")
+    }
 
     return(
         <Container>
@@ -14,7 +21,9 @@ export function Profile(){
                 <p>{user?.email}</p>
             </ProfileInfoCard>
 
-            <DefaultButton title="Sair" theme="purple" />
+            <div style={{width:"100%", maxWidth: '250px'}}>
+                <DefaultButton title="Sair" theme="purple" onClick={() => handleLogout()}/>
+            </div>
         </Container>
     )
 }

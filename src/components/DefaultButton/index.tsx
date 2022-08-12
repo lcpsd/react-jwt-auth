@@ -1,6 +1,7 @@
+import { HTMLAttributes, ReactElement } from "react";
 import { Styles } from "./styles";
 
-interface DefaultButtonProps{
+interface DefaultButtonProps extends HTMLAttributes<HTMLButtonElement>{
     title: string;
     theme: 'purple' | 'dark';
 }
