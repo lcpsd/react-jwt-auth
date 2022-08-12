@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactElement } from "react";
+import { HTMLAttributes } from "react";
 import { Styles } from "./styles";
 
 interface DefaultButtonProps extends HTMLAttributes<HTMLButtonElement>{
